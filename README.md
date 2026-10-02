@@ -1,28 +1,21 @@
 # Color Independent Word Segmentation From Transcribed Bangla Passages
 
-Code for the paper **"Color Independent Word Segmentation From Transcribed Bangla Passages"** (EICT 2023).
+Code for the EICT 2023 paper by Faias Satter, Noor Masrur and Sk. Md. Masudul Ahsan.
 
-Paper: [IEEE](https://doi.org/10.1109/EICT61409.2023.10427730) · [arXiv](https://arxiv.org/abs/2610.01191)  
-Thesis and related papers: [Optical Character Recognition From Handwritten Bangla Texts](https://github.com/FaiasPromit/Optical-Character-Recognition-From-Handwritten-Bangla-Texts)
-
-The code segments words in smartphone photos of handwritten Bangla paragraphs, on any color of paper and ink, including images with shadows.
+[arXiv](https://arxiv.org/abs/2610.01191) · [IEEE](https://doi.org/10.1109/EICT61409.2023.10427730) · [Thesis](https://github.com/FaiasPromit/Optical-Character-Recognition-From-Handwritten-Bangla-Texts)
 
 ## How to run
 
-The code runs in Google Colab.
+1. Use Python 3.12 and install `requirements.txt` in a virtual environment. Open the notebook in Jupyter, VS Code or Colab.
+2. Edit the configuration cell. Set `USE_GOOGLE_DRIVE = True` for Google Drive in Colab; otherwise use local paths.
+3. Set `PARAGRAPH_DIR` to the folder containing the paragraph BMP images and choose an empty `OUTPUT_DIR`.
+4. Run the cells in order. The default selection processes the included `B022.bmp` and `B023.bmp` samples.
 
-1. Download the `Thesis-OCR` folder from this repository.
-2. Upload it to the top level of your Google Drive (My Drive).
-3. Open `Color Independent Word Segmentation From Transcribed Bangla Passages.ipynb` in Google Colab and run it.
-4. The segmented words are saved in the `Words_Outputs` folder.
+Word crops are saved under `OUTPUT_DIR/Word_Outputs`, with boxed previews and a JSON count summary alongside. Choose a new output folder when rerunning.
 
-## Running on the full dataset
+For all 80 paragraphs, download [PromitoLipi1.1](https://data.mendeley.com/datasets/fnw59h7y89/2), update `PARAGRAPH_DIR`, and set `IMAGE_NUMBERS = range(1, 81)`.
 
-By default, the notebook processes only two sample images. To run it on all 80 paragraph images:
-
-1. Download the PromitoLipi dataset from [Mendeley Data](https://data.mendeley.com/datasets/fnw59h7y89/2) and upload it to your Google Drive.
-2. Replace the existing `PromitoLipi1.1` folder with the dataset's `PromitoLipi1.1` folder.
-3. In the last cell of the notebook, change `for i in range(22,24):` to `for i in range(1,81):`.
+The `sortit()` reading-order implementation is not included, so crop numbering does not represent paragraph reading order.
 
 ## Citation
 
